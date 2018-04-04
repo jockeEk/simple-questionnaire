@@ -1,6 +1,20 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <html>
+<title>Fall risk screening!</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <head>
+<style>
+    p.serif {
+        font-family: Cambria, Georgia, serif;
+        font-size: 20px;
+    }
+
+.center {
+    margin: auto;
+    width: 60%;
+}
+</style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script>
     var result;
@@ -10,6 +24,7 @@
         document.getElementById("age").style.display = "none";
         document.getElementById("living").style.display = "none";
         document.getElementById("help").style.display = "none";
+        document.getElementById("beforetest").style.display = "none";
         document.getElementById("legtest").style.display = "none";
         document.getElementById("result").style.display = "none";
         document.getElementById("score").style.display = "none";
@@ -73,7 +88,6 @@
         }
         document.getElementById("living").style.display = "none";
         document.getElementById("help").style.display = "block";
-        //alert(result);
     }
 
     function helpDone() {
@@ -87,8 +101,12 @@
             }
         }
         document.getElementById("help").style.display = "none";
+        document.getElementById("beforetest").style.display = "block";
+    }
+
+    function beforetestDone() {
+        document.getElementById("beforetest").style.display = "none";
         document.getElementById("legtest").style.display = "block";
-        //alert(result);
     }
 
     function legtestDone() {
@@ -112,16 +130,15 @@
             document.getElementById("score").innerHTML = "<b>High risk</b>";
         }
         document.getElementById("score").style.display = "block";
-        //alert(result);
     }
 
 </script>
 </head>
 <body onload="init()">
-    <div id="sex">
-        What is your sex? <br>
-        <input type="radio" name="gender" value="male" onchange="sexSet()">Male<br>
-        <input type="radio" name="gender" value="female" onchange="sexSet()">Female<br>
+    <div id="sex" class="center">
+        <p class="serif">Are you</p>
+        <input class="w3-radio" type="radio" name="gender" value="male" onchange="sexSet()">Male<br>
+        <input class="w3-radio" type="radio" name="gender" value="female" onchange="sexSet()">Female<br><br>
         <button id="sexBtn" onclick="sexDone()" disabled="true">Next</button>
     </div>
     <div id="age">
@@ -151,6 +168,11 @@
         <input type="radio" name="help" value="yes">Yes<br>
         <input type="radio" name="help" value="no">No<br>
         <button type="button" onclick="helpDone()">Next</button>
+    </div>
+    <div id="beforetest">
+        <h1>Thank you</h1> <b>for</b> <i>answering</i> these questions! Your health care contact will finish the screening with a quick balance test.
+        <br><br>
+        <button type="button" onclick="beforetestDone()">Next</button>
     </div>
     <div id="legtest">
         One leg balance test, result: <br>
