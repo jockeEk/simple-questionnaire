@@ -1,0 +1,164 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+    var result;
+    function init() {
+        result = 0;
+        document.getElementById("sex").style.display = "block";
+        document.getElementById("age").style.display = "none";
+        document.getElementById("living").style.display = "none";
+        document.getElementById("help").style.display = "none";
+        document.getElementById("legtest").style.display = "none";
+        document.getElementById("result").style.display = "none";
+        document.getElementById("score").style.display = "none";
+    }
+
+    function sexDone() {
+        document.getElementById("sex").style.display = "none";
+        document.getElementById("age").style.display = "block";
+    }
+    function sexSet() {
+        document.getElementById("sexBtn").disabled = false;
+    }
+
+    function ageDone() {
+        document.getElementById("sex").style.display = "none";
+        document.getElementById("age").style.display = "block";
+
+        var isMale = false;
+        var genders = document.getElementsByName('gender');
+        for (var i = 0, length = genders.length; i < length; i++) {
+            if (genders[i].checked) {
+                isMale = genders[i].value == 'male';
+                break;
+            }
+        }
+        var ages = document.getElementsByName('age');
+        for (var i = 0, length = ages.length; i < length; i++) {
+            if (ages[i].checked) {
+                if (ages[i].value == 'span1') {
+                    result = 0;
+                    break;
+                }
+                if (ages[i].value == 'span2') {
+                    if (isMale) {
+                        result = 2;
+                    } else {
+                        result = 1;
+                    }
+                    break;
+                }
+                if (ages[i].value == 'span3') {
+                    result = 3;
+                    break;
+                }
+            }
+        }
+        document.getElementById("age").style.display = "none";
+        document.getElementById("living").style.display = "block";
+        //alert(result);
+    }
+
+    function livingDone() {
+        var array = document.getElementsByName('living');
+        for (var i = 0, length = array.length; i < length; i++) {
+            if (array[i].checked) {
+                if (array[i].value == 'no') {
+                    result = result + 1;
+                    break;
+                }
+            }
+        }
+        document.getElementById("living").style.display = "none";
+        document.getElementById("help").style.display = "block";
+        //alert(result);
+    }
+
+    function helpDone() {
+        var array = document.getElementsByName('help');
+        for (var i = 0, length = array.length; i < length; i++) {
+            if (array[i].checked) {
+                if (array[i].value == 'yes') {
+                    result = result + 1;
+                    break;
+                }
+            }
+        }
+        document.getElementById("help").style.display = "none";
+        document.getElementById("legtest").style.display = "block";
+        //alert(result);
+    }
+
+    function legtestDone() {
+        var array = document.getElementsByName('legtest');
+        for (var i = 0, length = array.length; i < length; i++) {
+            if (array[i].checked) {
+                if (array[i].value == 'less') {
+                    result = result + 1;
+                    break;
+                }
+            }
+        }
+        document.getElementById("legtest").style.display = "none";
+        document.getElementById("result").innerHTML = "Your score is: " + result;
+        document.getElementById("result").style.display = "block";
+        if (result == 0) {
+            document.getElementById("score").innerHTML = "<b>Low risk</b>";
+        } else if (result < 3) {
+            document.getElementById("score").innerHTML = "<b>Medium risk</b>";
+        } else {
+            document.getElementById("score").innerHTML = "<b>High risk</b>";
+        }
+        document.getElementById("score").style.display = "block";
+        //alert(result);
+    }
+
+</script>
+</head>
+<body onload="init()">
+    <div id="sex">
+        What is your sex? <br>
+        <input type="radio" name="gender" value="male" onchange="sexSet()">Male<br>
+        <input type="radio" name="gender" value="female" onchange="sexSet()">Female<br>
+        <button id="sexBtn" onclick="sexDone()" disabled="true">Next</button>
+    </div>
+    <div id="age">
+        How old are you? <br>
+        <input type="radio" name="age" value="span1">69 or younger<br>
+        <input type="radio" name="age" value="span2">70-79<br>
+        <input type="radio" name="age" value="span3">80 or older<br>
+        <button type="button" onclick="ageDone()">Next</button>
+    </div>
+    <div id="living">
+        Are you living with someone? <br>
+        <input type="radio" name="living" value="yes">Yes<br>
+        <input type="radio" name="living" value="no">No<br>
+        <button type="button" onclick="livingDone()">Next</button>
+    </div>
+    <div id="help">
+        Do you need help with any of the following tasks? <br>
+        <ul>
+            <li>managing finances</li>
+            <li>using the telephone</li>
+            <li>grocery shopping</li>
+            <li>using transportation</li>
+            <li>preparing meals</li>
+            <li>cleaning</li>
+            <li>doing laundry</li>
+        </ul>
+        <input type="radio" name="help" value="yes">Yes<br>
+        <input type="radio" name="help" value="no">No<br>
+        <button type="button" onclick="helpDone()">Next</button>
+    </div>
+    <div id="legtest">
+        One leg balance test, result: <br>
+        <input type="radio" name="legtest" value="less">less than 5 seconds<br>
+        <input type="radio" name="legtest" value="more">5 seconds of more<br>
+        <button type="button" onclick="legtestDone()">Next</button>
+    </div>
+    <div id="result"></div>
+    <div id="score"></div>
+</body>
+</html>
