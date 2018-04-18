@@ -30,12 +30,17 @@
         document.getElementById("score").style.display = "none";
     }
 
+    function sexSet() {
+        document.getElementById("sexBtn").disabled = false;
+    }
+
     function sexDone() {
         document.getElementById("sex").style.display = "none";
         document.getElementById("age").style.display = "block";
     }
-    function sexSet() {
-        document.getElementById("sexBtn").disabled = false;
+
+    function ageSet() {
+        document.getElementById("ageBtn").disabled = false;
     }
 
     function ageDone() {
@@ -76,6 +81,10 @@
         //alert(result);
     }
 
+    function livingSet() {
+        document.getElementById("livingBtn").disabled = false;
+    }
+
     function livingDone() {
         var array = document.getElementsByName('living');
         for (var i = 0, length = array.length; i < length; i++) {
@@ -88,6 +97,10 @@
         }
         document.getElementById("living").style.display = "none";
         document.getElementById("help").style.display = "block";
+    }
+
+    function helpSet() {
+        document.getElementById("helpBtn").disabled = false;
     }
 
     function helpDone() {
@@ -107,6 +120,10 @@
     function beforetestDone() {
         document.getElementById("beforetest").style.display = "none";
         document.getElementById("legtest").style.display = "block";
+    }
+
+    function legtestSet() {
+        document.getElementById("legtestBtn").disabled = false;
     }
 
     function legtestDone() {
@@ -141,21 +158,21 @@
         <input class="w3-radio" type="radio" name="gender" value="female" onchange="sexSet()">Female<br><br>
         <button id="sexBtn" onclick="sexDone()" disabled="true">Next</button>
     </div>
-    <div id="age">
-        How old are you? <br>
-        <input type="radio" name="age" value="span1">69 or younger<br>
-        <input type="radio" name="age" value="span2">70-79<br>
-        <input type="radio" name="age" value="span3">80 or older<br>
-        <button type="button" onclick="ageDone()">Next</button>
+    <div id="age" class="center">
+        <p class="serif">How old are you?</p>
+        <input class="w3-radio" type="radio" name="age" value="span1" onchange="ageSet()">69 or younger<br>
+        <input class="w3-radio" type="radio" name="age" value="span2" onchange="ageSet()">70-79<br>
+        <input class="w3-radio" type="radio" name="age" value="span3" onchange="ageSet()">80 or older<br><br>
+        <button id="ageBtn" type="button" onclick="ageDone()" disabled="true">Next</button>
     </div>
-    <div id="living">
-        Are you living with someone? <br>
-        <input type="radio" name="living" value="yes">Yes<br>
-        <input type="radio" name="living" value="no">No<br>
-        <button type="button" onclick="livingDone()">Next</button>
+    <div id="living" class="center">
+        <p class="serif">Are you living with someone?</p>
+        <input class="w3-radio" type="radio" name="living" value="yes" onchange="livingSet()">Yes<br>
+        <input class="w3-radio" type="radio" name="living" value="no" onchange="livingSet()">No<br><br>
+        <button id="livingBtn" type="button" onclick="livingDone()" disabled="true">Next</button>
     </div>
-    <div id="help">
-        Do you need help with any of the following tasks? <br>
+    <div id="help" class="center">
+        <p class="serif">Do you need help with any of the following tasks?</p>
         <ul>
             <li>managing finances</li>
             <li>using the telephone</li>
@@ -165,22 +182,22 @@
             <li>cleaning</li>
             <li>doing laundry</li>
         </ul>
-        <input type="radio" name="help" value="yes">Yes<br>
-        <input type="radio" name="help" value="no">No<br>
-        <button type="button" onclick="helpDone()">Next</button>
+        <input class="w3-radio" type="radio" name="help" value="yes" onchange="helpSet()">Yes<br>
+        <input class="w3-radio" type="radio" name="help" value="no" onchange="helpSet()">No<br><br>
+        <button id="helpBtn" type="button" onclick="helpDone()" disabled="true">Next</button>
     </div>
-    <div id="beforetest">
-        <h1>Thank you</h1> <b>for</b> <i>answering</i> these questions! Your health care contact will finish the screening with a quick balance test.
+    <div id="beforetest" class="center">
+        <p class="serif">Thank you foranswering these questions! Your health care contact will finish the screening with a quick </p>balance test.
         <br><br>
         <button type="button" onclick="beforetestDone()">Next</button>
     </div>
-    <div id="legtest">
-        One leg balance test, result: <br>
-        <input type="radio" name="legtest" value="less">less than 5 seconds<br>
-        <input type="radio" name="legtest" value="more">5 seconds of more<br>
-        <button type="button" onclick="legtestDone()">Next</button>
+    <div id="legtest" class="center">
+        <p class="serif">One leg balance test, result: </p>
+        <input class="w3-radio" type="radio" name="legtest" value="less" onchange="legtestSet()">less than 5 seconds<br>
+        <input class="w3-radio" type="radio" name="legtest" value="more" onchange="legtestSet()">5 seconds of more<br><br>
+        <button id="legtestBtn" type="button"  onclick="legtestDone()" disabled="true">Next</button>
     </div>
-    <div id="result"></div>
-    <div id="score"></div>
+    <div id="result" class="center"></div>
+    <div id="score" class="center"></div>
 </body>
 </html>
