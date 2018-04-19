@@ -7,7 +7,12 @@
 <style>
     p.serif {
         font-family: Cambria, Georgia, serif;
-        font-size: 40px;
+        font-size: 28px;
+    }
+
+    p.serif2 {
+        font-family: Cambria, Georgia, serif;
+        font-size: 22px;
     }
 
     .center {
@@ -19,15 +24,18 @@
 
     .inner {
         margin: auto;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        margin-right: 20px;
-        margin-left: 20px;
-        height: 80%;
+        margin-top: 1em;
+        margin-bottom: 1em;
+        margin-right: 1em;
+        margin-left: 1em;
     }
 
     body {
         background-color: #28BCA6;
+    }
+
+    button {
+        margin-bottom: 1em;
     }
 </style>
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -191,7 +199,7 @@
     </div>
     <div id="help" class="center">
         <div class="inner">
-            <p class="serif">Do you need help with any of the following tasks?</p>
+            <p class="serif2">Do you need help with any of the following tasks?</p>
             <ul>
                 <li>managing finances</li>
                 <li>using the telephone</li>
@@ -208,7 +216,7 @@
     </div>
     <div id="beforetest" class="center">
         <div class="inner">
-            <p>Thank you foranswering these questions! Your health care contact will finish the screening with a quick balance test.</p>
+            <p>Thank you for answering these questions! Your health care contact will finish the screening with a quick balance test.</p>
             <br><br>
             <button type="button" onclick="beforetestDone()">Next</button>
         </div>
