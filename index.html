@@ -19,11 +19,11 @@
 
     .inner {
         margin: auto;
-        margin-top: 100px;
-        margin-bottom: 100px;
-        margin-right: 100px;
-        margin-left: 100px;
-        height: 400px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        margin-right: 20px;
+        margin-left: 20px;
+        height: 80%;
     }
 
     body {
@@ -41,7 +41,6 @@
         document.getElementById("help").style.display = "none";
         document.getElementById("beforetest").style.display = "none";
         document.getElementById("legtest").style.display = "none";
-        document.getElementById("result").style.display = "none";
         document.getElementById("score").style.display = "none";
     }
 
@@ -151,14 +150,12 @@
             }
         }
         document.getElementById("legtest").style.display = "none";
-        document.getElementById("result").innerHTML = "Your score is: " + result;
-        document.getElementById("result").style.display = "block";
         if (result == 0) {
-            document.getElementById("score").innerHTML = "<b>Low risk</b>";
+            document.getElementById("score").innerHTML = "<b>Low risk</b><br> Your score is: " + result;
         } else if (result < 3) {
-            document.getElementById("score").innerHTML = "<b>Medium risk</b>";
+            document.getElementById("score").innerHTML = "<b>Medium risk</b><br> Your score is: " + result;
         } else {
-            document.getElementById("score").innerHTML = "<b>High risk</b>";
+            document.getElementById("score").innerHTML = "<b>High risk</b><br> Your score is: " + result;
         }
         document.getElementById("score").style.display = "block";
     }
@@ -211,7 +208,7 @@
     </div>
     <div id="beforetest" class="center">
         <div class="inner">
-            <p class="serif">Thank you foranswering these questions! Your health care contact will finish the screening with a quick </p>balance test.
+            <p>Thank you foranswering these questions! Your health care contact will finish the screening with a quick balance test.</p>
             <br><br>
             <button type="button" onclick="beforetestDone()">Next</button>
         </div>
@@ -224,7 +221,8 @@
             <button id="legtestBtn" type="button"  onclick="legtestDone()" disabled="true">Next</button>
         </div>
     </div>
-    <div class="inner" id="result" class="center"></div>
-    <div class="inner" id="score" class="center"></div>
+    <div class="center">
+        <div class="inner" id="score">
+    </div>
 </body>
 </html>
